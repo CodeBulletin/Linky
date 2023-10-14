@@ -1,0 +1,15 @@
+# Docker Compose for the Dockerfile
+version: '3.3'
+services:
+  Linky:
+    image: linky
+    build:
+        context: ./   
+        dockerfile: Dockerfile
+    Ports:
+      - "80:8000"
+    Volumes:
+      - ${PWD}/database.db:/app/url.db
+    Environment:
+      - LINKY_PASSWORD = # Your password here
+      - LINKY_SITE_URL = # Your site url here
