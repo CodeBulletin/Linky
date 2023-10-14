@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linky Admin</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #222;
+        }
+        tr:nth-child(odd) {
+            background-color: #111;
+        }
+        button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+        a {
+            color: #3498db; /* Blue link color */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #2980b9; /* Darker blue on hover */
+        }
+        #pagination-container {
+            text-align: center;
+        }
+        #pagination-container button {
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Path</th>
+                    <th>URL</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+        <div id="pagination-container">
+            <button id="prevPage">Previous</button>
+            <span id="currentPage">1</span>
+            <button id="nextPage">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const apiURL = '/listall'; // Replace with your API endpoint
+        const itemsPerPage = 5; // Number of items to show per page
+        let currentPage = 1;
+        let maxPages = 1;
+
+
+        async function getMaxPages() {
+            const response = await fetch(`${apiURL}/${itemsPerPage}`);
+            const data = await response.json();
+            return data;
+        }
+        
+
+        // Function to fetch data from the API
+        async function fetchData(page) {
+            const response = await fetch(`${apiURL}/${itemsPerPage}/${page}`);
+            const data = await response.json();
+            return data;
+        }
+
+        // Function to display data in the table
+        function displayData(data) {
+            const tableBody = document.getElementById("table-body");
+            tableBody.innerHTML = '';
+
+            data.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item[0]}</td>
+                    <td><a href='${item[1]}'>${item[1]}</a></td>
+                    <td><button data-id="${item[0]}" class="delete-btn">Delete</button></td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            // Attach click event handlers to delete buttons
+            const deleteButtons = document.querySelectorAll(".delete-btn");
+            deleteButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const id = button.getAttribute("data-id");
+                    window.location.href = `/${id}/delete`;
+                });
+            });
+        }
+
+        // Function to handle pagination
+        async function updateTable(page) {
+            currentPage = page;
+            const data = await fetchData(page);
+            displayData(data);
+            document.getElementById("currentPage").textContent = `${currentPage} / ${maxPages}`;
+        }
+
+        // Event listener for pagination buttons
+        document.getElementById("prevPage").addEventListener("click", () => {
+            if (currentPage > 1)
+                updateTable(currentPage - 1);
+        });
+
+        document.getElementById("nextPage").addEventListener("click", () => {
+            if (currentPage < maxPages)
+                updateTable(currentPage + 1);
+        });
+
+        // Initial data load
+        getMaxPages().then(data => {
+            maxPages = data.pages;
+            updateTable(currentPage);
+        });
+    </script>
+</body>
+</html>

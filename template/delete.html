@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Delete Linky</title>
+        <!-- Axios -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+
+    <script>
+        window.addEventListener("load", function() {
+            let passwd = prompt("Please enter your password to delete this linky:")
+            let id = "{{ pathid }}"
+            let data = {
+                    pathid: id,
+                    passwd: passwd
+                }
+            console.log(data)
+            if (passwd == null || passwd == "") {
+                alert("You must enter a password to delete this linky.")
+            } else {
+                axios.post('/delete_url', data)
+                .then(function (response) {
+                    const data = response.data;
+                    if (data.type === 'error') {
+                        alert(data.message);
+                        window.location.href = "/";
+                    } else if (data.type === 'success') {
+                        alert(data.message);
+                        window.location.href = "/";
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert('There was an error deleting your URL.');
+                });
+            }
+        })
+    </script>
+</html>
