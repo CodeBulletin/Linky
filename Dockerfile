@@ -3,13 +3,19 @@
 # Use the official Python image.
 # https://hub.docker.com/_/python
 
-FROM python:3.11-alpine
+FROM python:3.11-bullseye
 
 # Set the working directory to /app
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
+
+# Install the required packages
+RUN apt install curl build-essential gcc make -y
+
+# Install rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --upgrade pip
