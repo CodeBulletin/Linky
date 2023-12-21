@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath clipPathUnits="userSpaceOnUse" id="clipPath20">
+      <path d="m 13238.7,7439.6 c -656.6,0 -1258.4,234.3 -1726.5,623.8 -0.1,0 -0.2,0.1 -0.3,0.2 -40.7,38.3 -82.5,75.3 -125.4,111 -0.2,0.2 -0.4,0.4 -0.6,0.6 -495.9,414 -1134.2,663 -1830.62,663 -342.17,0 -670.29,-60.1 -974.39,-170.4 C 7669.45,8337.4 6973.98,7556.6 6763.1,6594.4 c 440.17,311.4 977.71,494.3 1557.91,494.3 477.32,0 925.69,-123.8 1314.82,-341.1 63.79,-35.6 124.69,-76.1 184.18,-118.5 44.96,-32.1 90.83,-62.9 137.57,-92.5 0.11,0 0.11,-0.1 0.21,-0.1 C 10424.4,6241 10977.4,6070 11570.5,6070 c 290,0 570.4,40.9 835.7,117.2 772.3,221.9 1417.6,743.9 1801.7,1431.5 -300.9,-115.6 -627.6,-179.1 -969.2,-179.1 z" id="path18"/>
+    </clipPath>
+    <linearGradient x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(7682.09,0,0,-7682.09,6120.11,7454.1)" spreadMethod="pad" id="linearGradient26">
+      <stop style="stop-opacity:1;stop-color:#00a79d" offset="0" id="stop22"/>
+      <stop style="stop-opacity:1;stop-color:#60f4c2" offset="1" id="stop24"/>
+    </linearGradient>
+    <clipPath clipPathUnits="userSpaceOnUse" id="clipPath36">
+      <path d="M 8701.94,9207.7 V 14647 c -1107.38,0 -2005.09,-897.7 -2005.09,-2005.1 V 7704.8 c 442.45,731.6 1157.87,1279.5 2005.09,1502.9 z" id="path34"/>
+    </clipPath>
+    <linearGradient x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,-6928.21,-6928.21,0,7699.4,14949.8)" spreadMethod="pad" id="linearGradient42">
+      <stop style="stop-opacity:1;stop-color:#00a79d" offset="0" id="stop38"/>
+      <stop style="stop-opacity:1;stop-color:#60f4c2" offset="1" id="stop40"/>
+    </linearGradient>
+  </defs>
+  <g id="g8" transform="matrix(1.3333330154418945, 0, 0, -1.3333330154418945, -1542.2262422509848, 2676.216144210579)">
+    <g id="g10" transform="scale(0.1)">
+      <g id="g14" transform="matrix(1, 0, 0, 1, 5604.297042, 5210.385897)">
+        <g id="g16" clip-path="url(#clipPath20)">
+          <path d="m 13238.7,7439.6 c -656.6,0 -1258.4,234.3 -1726.5,623.8 -0.1,0 -0.2,0.1 -0.3,0.2 -40.7,38.3 -82.5,75.3 -125.4,111 -0.2,0.2 -0.4,0.4 -0.6,0.6 -495.9,414 -1134.2,663 -1830.62,663 -342.17,0 -670.29,-60.1 -974.39,-170.4 C 7669.45,8337.4 6973.98,7556.6 6763.1,6594.4 c 440.17,311.4 977.71,494.3 1557.91,494.3 477.32,0 925.69,-123.8 1314.82,-341.1 63.79,-35.6 124.69,-76.1 184.18,-118.5 44.96,-32.1 90.83,-62.9 137.57,-92.5 0.11,0 0.11,-0.1 0.21,-0.1 C 10424.4,6241 10977.4,6070 11570.5,6070 c 290,0 570.4,40.9 835.7,117.2 772.3,221.9 1417.6,743.9 1801.7,1431.5 -300.9,-115.6 -627.6,-179.1 -969.2,-179.1" style="fill:url(#linearGradient26);fill-opacity:1;fill-rule:nonzero;stroke:none" id="path28"/>
+        </g>
+      </g>
+      <g id="g30" transform="matrix(1, 0, 0, 1, 5604.297042, 5210.385897)">
+        <g id="g32" clip-path="url(#clipPath36)">
+          <path d="M 8701.94,9207.7 V 14647 c -1107.38,0 -2005.09,-897.7 -2005.09,-2005.1 V 7704.8 c 442.45,731.6 1157.87,1279.5 2005.09,1502.9" style="fill:url(#linearGradient42);fill-opacity:1;fill-rule:nonzero;stroke:none" id="path44"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
