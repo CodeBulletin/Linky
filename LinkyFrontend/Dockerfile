@@ -1,13 +1,19 @@
-#build stage for a Node.js application
-FROM node:lts-alpine as build-stage
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+# Use an alpine-based Nginx image
+FROM nginx:1.25.3-alpine
 
-#production stage
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+# Set the working directory
+WORKDIR /usr/share/nginx/html
+
+# Remove default nginx static assets
+RUN rm -rf ./*
+
+# Copy the built SPA to the nginx serving directory
+COPY . .
+
+COPY ./default.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80 for the web server
 EXPOSE 80
+
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
