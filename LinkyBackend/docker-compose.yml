@@ -9,7 +9,7 @@ services:
     Ports:
       - "80:8000"
     Volumes:
-      - ${PWD}/database.db:/app/url.db
+      - ${PWD}/database.db:/app/linky.db
     Environment:
-      - LINKY_PASSWORD = # Your password here
+      - LINKY_SECRET_KEY = # Your password here
       - LINKY_SITE_URL = # Your site url here

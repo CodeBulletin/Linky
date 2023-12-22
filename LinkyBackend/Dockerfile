@@ -25,11 +25,11 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # Define environment variable
-ARG LINKY_PASSWORD
+ARG LINKY_SECRET_KEY
 ARG LINKY_SITE_URL
 
 # Run app.py when the container launches
-CMD ["uvicorn", "server:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "-k", "uvicorn.workers.UvicornWorker", "server:app]"
 
 # Build the image
 # docker build -t linky .
