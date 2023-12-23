@@ -6,10 +6,13 @@ services:
     build:
         context: ./   
         dockerfile: Dockerfile
-    Ports:
+    ports:
       - "80:8000"
-    Volumes:
+    volumes:
       - ${PWD}/database.db:/app/linky.db
-    Environment:
+    environment:
       - LINKY_SECRET_KEY = # Your password here
       - LINKY_SITE_URL = # Your site url here
+
+# run the docker compose
+# docker-compose up -d
